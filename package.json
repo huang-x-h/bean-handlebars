@@ -1,7 +1,11 @@
 {
   "name": "bean-handlebars",
   "version": "0.0.1",
-  "description": "handlebars common helps with bootstrap\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[Ders with bootstrap",
+  "description": "handlebars common helpers with Bean.js & bootstrap",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:huang-x-h/bean-handlebars.git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

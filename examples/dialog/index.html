@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dialog</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap-theme.css">
+    <style>
+        .bs-example {
+            position: relative;
+            padding: 45px 15px 15px;
+            margin: 0 -15px 15px;
+            border-color: #e5e5e5 #eee #eee;
+            border-style: solid;
+            border-width: 1px 0;
+            box-shadow: inset 0 3px 6px rgba(0, 0, 0, .05);
+        }
+        .bs-example:after {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #959595;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            content: "Example";
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="bs-example"></div>
+    </div>
+    <script src="../../node_modules/underscore/underscore.js"></script>
+    <script src="../../node_modules/handlebars/dist/handlebars.js"></script>
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../index.js"></script>
+    <script id="checkbox-tpl" type="text/x-handlebars-template">
+        {{#bean_checkbox checkboxValue1}}{{/bean_checkbox}}
+        {{#bean_checkbox checkboxValue2}}{{/bean_checkbox}}
+        {{#bean_checkbox label="my label" value="1" checked="true"}}{{/bean_checkbox}}
+        {{#bean_radio radioValue1 name="optionsRadios" id="optionsRadios1"}}{{/bean_radio}}
+        {{#bean_radio radioValue2 name="optionsRadios" id="optionsRadios2"}}{{/bean_radio}}
+        {{#bean_radio radioValue3 name="optionsRadios" id="optionsRadios3"}}{{/bean_radio}}
+    </script>
+    <script>
+        $('.bs-example').append(Handlebars.compile($('#checkbox-tpl').html())({
+            checkboxValue1: {label: "Option one is this and that&mdash;be sure to include why it's great"},
+            checkboxValue2: {label: "Option two is disabled", disabled: true},
+            radioValue1: {value: 'option1', label: "Option one is this and that&mdash;be sure to include why it's great"},
+            radioValue2: {value: 'option2', label: "Option two can be something else and selecting it will deselect option one"},
+            radioValue3: {value: 'option3', label: "Option three is disabled", disabled: true}
+        }));
+    </script>
+</body>
+</html>

@@ -4,7 +4,6 @@
   "description": "handlebars common helps with bootstrap\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[Ders with bootstrap",
   "main": "index.js",
   "scripts": {
-    "build": "browserify --ignore handlebars ./src/bundle.js > build/bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -14,9 +13,8 @@
   "author": "huang.xinghui <huang.x.hui@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "handlebars": "^4.0.3"
+    "handlebars": "^4.0.3",
+    "underscore": "^1.8.3"
   },
-  "devDependencies": {
-    "browserify": "^11.2.0"
-  }
+  "devDependencies": {}
 }

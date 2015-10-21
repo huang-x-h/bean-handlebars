@@ -6,9 +6,17 @@ var _ = require('underscore');
 var Handlebars = require('handlebars');
 var registerHelper = require('../registerHelper');
 var template = Handlebars.compile('<div class="checkbox {{#if disabled}}disabled{{/if}}">' +
-    '<label><input type="checkbox" value="{{value}}" {{#if disabled}}disabled{{/if}} {{#stringify attrs}}{{/stringify}}>{{label}}</label></div>');
+    '<label><input type="checkbox" value="{{value}}"{{#if checked}} checked{{/if}}{{#if disabled}} disabled{{/if}} {{#stringify attrs}}{{/stringify}}>{{label}}</label></div>');
 
 registerHelper('checkbox', function(value, options) {
-  var context = _.extend({}, value, {attrs: options.hash});
+  var context;
+
+  if (_.isUndefined(options)) {
+    context = _.pick(value.hash, 'value', 'label', 'disabled', 'checked');
+    context.attrs = _.omit(value.hash, 'value', 'label', 'disabled', 'checked');
+  } else {
+    context = _.extend({}, value, {attrs: options.hash});
+  }
+
   return template(context);
 });

@@ -5,13 +5,7 @@
 var registerHelper = require('../registerHelper');
 
 registerHelper('dialog', function(options) {
-  var size = '';
-
-  if (options.hash.size) {
-    size = ' modal-' + options.hash.size;
-  }
-
-  var ret = '<div class="modal fade in"><div class="modal-dialog' + size + '"><div class="modal-content">';
+  var ret = '<div class="modal fade"><div class="modal-dialog"><div class="modal-content">';
   ret += options.fn(this);
   ret += '</div></div></div>';
   return ret;
